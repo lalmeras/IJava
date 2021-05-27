@@ -1,14 +1,16 @@
 # Kobalt
 
 ```bash
+git clone https://github.com/lalmeras/IJava
+cd IJava
 virtualenv -p /bin/python3 jupyter-env
 . jupyter-env/bin/activate
 pip install jupyter
 export JAVA_HOME=/usr/lib/jvm/java-11
-./gradlew installKernel --prefix jupyter-env/
+./gradlew installKernel --prefix jupyter-env/ </dev/null
 sed -e 's@"java"@"/usr/lib/jvm/java-11/bin/java"@' -i jupyter-env/share/jupyter/kernels/java/kernel.json
 rm -rf ~/.local/share/jupyter/kernels/java/
-jupyter notebook
+jupyter notebook ~/
 # Le navigateur s'ouvre sur la page de Jupyter
 ```
 
